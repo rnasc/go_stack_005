@@ -14,8 +14,8 @@ class CreateTransactionService {
   }
 
   public execute({ title, value, type }: Request): Transaction {
-
     const balance = this.transactionsRepository.getBalance();
+    // eslint-disable-next-line eqeqeq
     if (type == 'outcome' && balance.total - value < 0) {
       throw Error("You currently doesn't have enough balance");
     }
